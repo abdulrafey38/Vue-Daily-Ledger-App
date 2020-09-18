@@ -2,42 +2,42 @@
   <div class="wrapper">
     <side-bar>
       <mobile-menu slot="content"></mobile-menu>
-      <sidebar-link to="/admin/overview">
+      <sidebar-link to="/overview">
         <i class="nc-icon nc-chart-pie-35"></i>
         <p>Dashboard</p>
       </sidebar-link>
 
-      <sidebar-link to="/admin/user">
+      <sidebar-link to="/user">
         <i class="nc-icon nc-circle-09"></i>
         <p>User Profile</p>
       </sidebar-link>
 
-       <sidebar-link to="/admin/makeTransaction">
+       <sidebar-link to="/makeTransaction">
         <i class="nc-icon nc-circle-09"></i>
         <p>Make Transaction</p>
       </sidebar-link>
 
-      <sidebar-link to="/admin/product">
+      <sidebar-link to="/product">
         <i class="nc-icon nc-notes"></i>
         <p>Products</p>
       </sidebar-link>
 
-      <sidebar-link to="/admin/supplier">
+      <sidebar-link to="/supplier">
         <i class="nc-icon nc-paper-2"></i>
         <p>Suppliers</p>
       </sidebar-link>
 
 
-      <sidebar-link to="/admin/month">
+      <sidebar-link to="/month">
         <i class="nc-icon nc-atom"></i>
         <p>Months</p>
       </sidebar-link>
 
-      <sidebar-link to="/admin/dailyTransaction">
+      <sidebar-link to="/dailyTransaction">
         <i class="nc-icon nc-pin-3"></i>
         <p>Daily Transaction</p>
       </sidebar-link>
-      <sidebar-link to="/admin/allTransaction">
+      <sidebar-link to="/allTransaction">
         <i class="nc-icon nc-bell-55"></i>
         <p>All Transactions</p>
       </sidebar-link>

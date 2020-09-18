@@ -74,7 +74,7 @@
         Csrf.getcookie().then(()=>{
             User.addproduct(this.form)
             .then((response)=>{
-              this.$router.push('/admin/product');
+              this.$router.push('/product');
             })
             .catch(error => {
                 if(error.response.status===422){

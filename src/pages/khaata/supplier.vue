@@ -44,7 +44,6 @@
             <router-link  :to="{path: 'supplier/edit/'+data.id}"
              tag="button" class="btn btn-info btn-fill ">Update</router-link><br><br>
             </td>
-            </td>
              <td>{{data.updated_at}}</td>
 			</tr>
 		</table>

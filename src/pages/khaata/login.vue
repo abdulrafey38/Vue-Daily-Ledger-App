@@ -63,7 +63,7 @@ export default {
 
 
 
-             this.$router.push('/admin');
+             this.$router.push('/');
               this.$router.go()
 
 
@@ -86,11 +86,11 @@ export default {
 </script>
 
 
-<style >
+<style>
 	body {
 		color: #4e4e4e;
 		background-image: url("");
-    background-color: white;
+    background-color: 
 
 	}
 	.form-control {

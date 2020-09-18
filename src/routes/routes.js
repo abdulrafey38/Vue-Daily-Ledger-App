@@ -25,17 +25,18 @@ import Login from 'src/pages/khaata/login.vue'
 import MonthTransaction from 'src/pages/khaata/monthDetail.vue'
 import EditProduct from 'src/pages/khaata/editProduct.vue'
 import EditSupplier from 'src/pages/khaata/editSupplier.vue'
+import EditMonth from 'src/pages/khaata/editMonth.vue'
 const routes = [
   {
-    path: '/',
+    path: '/login',
     component: Login,
 
   },
   {
-    path: '/admin',
+    path: '/',
     component: DashboardLayout,
     meta:{authOnly:true},
-    redirect: '/admin/overview',
+    redirect: '/overview',
     children: [
       {
         path: 'overview',
@@ -92,6 +93,11 @@ const routes = [
         path: 'month/addMonth',
         name: 'Addmonth',
         component: AddMonth,
+      },
+      {
+        path: 'month/edit/:id',
+        name: 'monthProduct',
+        component: EditMonth,
       },
       {
         path: 'months/detail/:id',

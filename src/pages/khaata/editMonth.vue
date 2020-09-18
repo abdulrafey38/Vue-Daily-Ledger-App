@@ -3,7 +3,7 @@
   <div class="content">
     <div class="container-fluid">
       <card>
-    <h4 slot="header" class="card-title">Add Month</h4>
+    <h4 slot="header" class="card-title">Edit Month</h4>
     <form>
       <div class="row">
         <div class="col-md-5">
@@ -35,8 +35,8 @@
 
       </div>
       <div class="text-center">
-        <button type="submit" class="btn btn-info btn-fill float-right" @click.prevent="addMonth">
-          Add Month
+        <button type="submit" class="btn btn-info btn-fill float-right" @click.prevent="editMonth">
+          Update Month
         </button>
       </div>
 
@@ -62,13 +62,14 @@
           start_date: '',
           end_date: ''
         },
-        errors:[]
+        errors:[],
+        currentMonth:this.$route.params.id,
       }
     },
     methods: {
-      addMonth () {
+      editMonth () {
         Csrf.getcookie().then(()=>{
-            User.addmonth(this.month)
+            User.editmonth(this.currentMonth,this.month)
             .then((response)=>{
               this.$router.push('/month');
             })

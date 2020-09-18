@@ -33,7 +33,7 @@ export default {
     },
     editsupplier(id,form)
     {
-      alert(id)
+
       return Api.post('/supplier/'+id,form);
     },
     addproduct(form)
@@ -68,6 +68,10 @@ export default {
     addmonth(form)
     {
       return Api.post('/month',form);
+    },
+    editmonth(id,form)
+    {
+      return Api.post('/month/'+id,form);
     },
     getmonthdTransaction(id)
     {

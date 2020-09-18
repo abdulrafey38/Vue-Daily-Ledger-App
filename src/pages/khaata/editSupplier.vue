@@ -68,7 +68,7 @@
         Csrf.getcookie().then(()=>{
             User.editsupplier(this.currentSupplier,this.form)
             .then((response)=>{
-              this.$router.push('/admin/supplier');
+              this.$router.push('/supplier');
             })
             .catch(error => {
                 if(error.response.status===422){

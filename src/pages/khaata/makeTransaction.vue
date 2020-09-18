@@ -128,7 +128,7 @@
         Csrf.getcookie().then(()=>{
             User.addTransaction(this.form)
             .then((response)=>{
-              this.$router.push('/admin/dailyTransaction');
+              this.$router.push('/dailyTransaction');
             })
             .catch(error => {
                 if(error.response.status===422){

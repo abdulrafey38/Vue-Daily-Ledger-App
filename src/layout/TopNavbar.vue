@@ -64,7 +64,7 @@
          Csrf.getcookie().then(()=>{
         User.logout().then((response)=>{
         localStorage.removeItem("auth");
-        this.$router.push('/');
+        this.$router.push('/login');
 
       })
          });
