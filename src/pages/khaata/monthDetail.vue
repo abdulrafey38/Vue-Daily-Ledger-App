@@ -39,11 +39,14 @@
 
 
 			</tr>
-		</table>
+		  </table>
           </card>
 
+        <card>
+          <strong>{{ message}}</strong>
+            <strong>{{amount}}</strong> <h>Rs</h> <small>Only</small>
+        </card>
         </div>
-
 
       </div>
     </div>
@@ -64,12 +67,15 @@
       return {
           tableData:[],
           currentMonth:this.$route.params.id,
+          amount:'',
+          message:' Total  Amount  Spent  This  Month : '
 
     }
   },
     mounted()
     {
       this.getMonthDTransaction()
+      this.monthlySpendAmount(this.currentMonth)
     },
     methods:
     {
@@ -107,9 +113,25 @@
                 }
             })
        });
-    }
+    },
+    monthlySpendAmount(id)
+    {
+      Csrf.getcookie().then(()=>{
+            User.monthlySpendAmount(id)
+            .then((response)=>{
+              console.log(response)
+              this.amount =  response.data.amount
+
+            })
+            .catch(error => {
+                if(error.response.status===422){
+                    this.errors = error.response.data.errors;
+                }
+            })
+       });
     }
   }
+}
 </script>
 <style>
 </style>

@@ -85,6 +85,14 @@ export default {
     getSupplierProducts(id)
     {
       return Api.get("/getSupplierProducts/"+id);
+    },
+    addTransaction(form)
+    {
+      return Api.post('/transaction',form);
+    },
+    monthlySpendAmount(id)
+    {
+      return Api.get('/monthlySpendAmount/'+id);
     }
 
 };

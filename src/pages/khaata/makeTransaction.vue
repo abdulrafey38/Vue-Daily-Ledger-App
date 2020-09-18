@@ -124,7 +124,18 @@
     },
     methods: {
       makeTransaction () {
-        alert('Your data: ' + JSON.stringify(this.form))
+        //alert('Your data: ' + JSON.stringify(this.form))
+        Csrf.getcookie().then(()=>{
+            User.addTransaction(this.form)
+            .then((response)=>{
+              this.$router.push('/admin/dailyTransaction');
+            })
+            .catch(error => {
+                if(error.response.status===422){
+                    this.errors = error.response.data.errors;
+                }
+            })
+       });
       },
        getSupplier()
       {

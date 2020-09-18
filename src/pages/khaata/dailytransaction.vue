@@ -10,7 +10,7 @@
             <template slot="header">
               <h4 class="card-title">Transactions </h4>
 
-              <p class="card-category">All Transaction Till date</p>
+              <p class="card-category">Your Today's Transaction</p>
             </template>
            <table class="card-category table">
 
@@ -38,8 +38,7 @@
             <td>
               <button @click.prevent='delTransaction(data.id)' class='btn btn-danger btn-fill' >Delete </button>
             </td>
-
-
+   
 			</tr>
 		</table>
           </card>
