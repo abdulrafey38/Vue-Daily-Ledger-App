@@ -29,8 +29,12 @@ export default {
     },
     addsupplier(form)
     {
-
       return Api.post('/supplier',form);
+    },
+    editsupplier(id,form)
+    {
+      alert(id)
+      return Api.post('/supplier/'+id,form);
     },
     addproduct(form)
     {
@@ -39,6 +43,10 @@ export default {
     getproduct()
     {
       return Api.get("/product");
+    },
+    editproduct(id,form)
+    {
+      return Api.post("/product/"+id,form);
     },
     delproduct(id)
     {

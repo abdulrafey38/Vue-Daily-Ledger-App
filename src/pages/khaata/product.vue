@@ -40,7 +40,8 @@
               <button @click.prevent='delProduct(data.id)' class='btn btn-danger btn-fill' >Delete </button>
             </td>
             <td>
-              <button class='btn btn-info btn-fill' >Update</button>
+             <router-link  :to="{path: 'product/edit/'+data.id}"
+             tag="button" class="btn btn-info btn-fill ">Update</router-link><br><br>
             </td>
              <td>{{data.updated_at}}</td>
 			</tr>

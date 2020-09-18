@@ -23,6 +23,8 @@ import AllTransaction from 'src/pages/khaata/alltransaction.vue'
 import MakeTransaction from 'src/pages/khaata/makeTransaction.vue'
 import Login from 'src/pages/khaata/login.vue'
 import MonthTransaction from 'src/pages/khaata/monthDetail.vue'
+import EditProduct from 'src/pages/khaata/editProduct.vue'
+import EditSupplier from 'src/pages/khaata/editSupplier.vue'
 const routes = [
   {
     path: '/',
@@ -57,6 +59,11 @@ const routes = [
         component: AddProduct,
       },
       {
+        path: 'product/edit/:id',
+        name: 'editProduct',
+        component: EditProduct,
+      },
+      {
         path: 'dailyTransaction',
         name: 'DailyTransaction',
         component: DailyTransaction
@@ -70,6 +77,11 @@ const routes = [
         path: 'supplier/addSupplier',
         name: 'AddSupplier',
         component: AddSupplier,
+      },
+      {
+        path: 'supplier/edit/:id',
+        name: 'editSupplier',
+        component: EditSupplier,
       },
       {
         path: 'month',
