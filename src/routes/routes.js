@@ -39,15 +39,16 @@ const routes = [
   },
   {
     path: '/register',
-    component:Register,
+    component: Register,
   },
   {
     path: '/',
     component: DashboardLayout,
-    meta:{authOnly:true},
+    meta: {
+      authOnly: true
+    },
     redirect: '/overview',
-    children: [
-      {
+    children: [{
         path: 'overview',
         name: 'Overview',
         component: Overview
@@ -131,7 +132,10 @@ const routes = [
       }
     ]
   },
-  { path: '*', component: NotFound }
+  {
+    path: '*',
+    component: NotFound
+  }
 ]
 
 /**
