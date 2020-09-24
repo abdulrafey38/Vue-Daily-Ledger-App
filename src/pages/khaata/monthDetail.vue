@@ -12,6 +12,7 @@
 
               <p class="card-category">Your Month Transaction</p>
             </template>
+
             <table class="card-category table">
               <tr>
                 <th>Id</th>
@@ -25,7 +26,7 @@
                 <th>Last Updated</th>
               </tr>
 
-              <tr v-for="data in tableData" v-bind:key="data">
+              <tr v-for="data in tableData">
                 <!-- <td v-for="data in data" v-bind:key="data" >{{data}}</td> -->
                 <td>{{ data.id }}</td>
                 <td>{{ data.supplier }}</td>
@@ -53,7 +54,7 @@
               </tr>
             </table>
             <export-excel
-              class="btn btn-success"
+              class="btn btn-success btn-fill"
               style="float: right"
               :data="data"
               :fields="fields"

@@ -26,7 +26,7 @@
                 <th>Last Updated</th>
               </tr>
 
-              <tr v-for="data in tableData" v-bind:key="data">
+              <tr v-for="data in tableData">
                 <!-- <td v-for="data in data" v-bind:key="data" >{{data}}</td> -->
                 <td>{{ data.id }}</td>
                 <td>{{ data.supplier }}</td>
@@ -38,7 +38,7 @@
                 <td>
                   <button
                     @click.prevent="delTransaction(data.id)"
-                    class="btn btn-danger btn-fill"
+                    class="btn btn-danger btn-fill "
                   >
                     Delete
                   </button>
@@ -55,7 +55,7 @@
               </tr>
             </table>
             <export-excel
-              class="btn btn-success"
+              class="btn btn-success btn-fill"
               style="float: right"
               :data="data"
               :fields="fields"

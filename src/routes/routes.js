@@ -31,6 +31,7 @@ import EditTransaction from 'src/pages/khaata/editTransaction.vue'
 
 
 const routes = [
+
   {
     path: '/login',
     component: Login,

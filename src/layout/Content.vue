@@ -2,8 +2,9 @@
 
 <transition
          appear
-          enter-active-class="animate__animated aanimate__backInDown"
+          enter-active-class="animate__animated animate__backInDown"
           leave-active-class="animate__animated animate__backOutDown"
+          mode="out-in"
 
           >
 
