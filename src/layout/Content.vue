@@ -1,7 +1,15 @@
 <template>
 
+<transition
+         appear
+          enter-active-class="animate__animated aanimate__backInDown"
+          leave-active-class="animate__animated animate__backOutDown"
+
+          >
+
     <router-view></router-view>
 
+</transition>
 </template>
 <script>
   export default {}

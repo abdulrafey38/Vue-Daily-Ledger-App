@@ -1,14 +1,29 @@
 <template>
   <div class="login-form">
     <br /><br />
+    <h2 class="text-center">Register Here</h2>
 
-    <h2 class="text-center">Khaata Login</h2>
     <form>
       <div class="avatar">
         <img
         src=https://cdn.iconscout.com/icon/free/png-256/avatar-380-456332.png
         alt="Avatar">
       </div>
+
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control input-lg"
+          v-model="form.name"
+          placeholder="Name"
+          required="required"
+        />
+      </div>
+
+      <div class="alert btn-danger" v-if="errors.name">
+        {{ errors.name[0] }}
+      </div>
+
       <div class="form-group">
         <input
           type="text"
@@ -38,18 +53,33 @@
       </div>
 
       <div class="form-group">
+        <input
+          type="password"
+          class="form-control input-lg"
+          v-model="form.password_confirmation"
+          placeholder="Confirm Password"
+          required="required"
+        />
+      </div>
+
+      <div class="alert btn-danger" v-if="errors.password_confirmation">
+        {{ errors.password_confirmation[0] }}
+      </div>
+
+      <div class="form-group">
         <button
-          @click.prevent="login"
+          @click.prevent="register"
           class="btn btn-success btn-fill btn-block"
         >
-          Sign in
+          Sign Up
         </button>
       </div>
       <p class="hint-text">
-        Don't have an account? <a href="/register">Sign up here</a>
+        Already have an account?
+        <strong> <a href="/login">Sign In Here</a></strong>
       </p>
     </form>
-    <div class="form-footer"><a href="#">Forgot Your Password?</a></div>
+    <!-- <div class="form-footer"><a href="#">Forgot Your Password?</a></div> -->
   </div>
 </template>
 
@@ -64,22 +94,21 @@ export default {
       form: {
         email: "",
         password: "",
+        name: "",
+        password_confirmation: "",
       },
       errors: [],
     };
   },
   methods: {
-    login() {
+    register() {
       Csrf.getcookie().then(() => {
-        User.login(this.form)
+        User.register(this.form)
           .then((response) => {
-            const token = response.data.token;
-
-            //localStorage.setItem('auth',token);
+            const token = response.data.info.original.token;
             localStorage.setItem("auth001", token);
-
             this.$router.push("/");
-            this.$router.go();
+            this.$router.go("/");
           })
           .catch((error) => {
             if (error.response.status === 422) {
@@ -93,11 +122,13 @@ export default {
 };
 </script>
 
-
-
-
-<style scoped>
+<style  >
 body {
+  background-image: url("https://images.squarespace-cdn.com/content/v1/58debb3d5016e130b21344df/1493076222125-0IVS64DTPE3P8M0KMEYV/ke17ZwdGBToddI8pDm48kKWuPA1gEhzfHDYA-kj4Cgt7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1USNkZhLiPIepRZNrPMRKosibzKmhad8_dnBLhVdWJYYC3WUfc_ZsVm9Mi1E6FasEnQ/bg-home.png?format=1500w");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .form-control {
   font-size: 16px;
@@ -127,7 +158,7 @@ body {
   height: 100px;
   border-radius: 50%;
   z-index: 9;
-  background: darkgray;
+  background: darkgrey;
   padding: 15px;
   box-shadow: 0px 2px 2px rgba(173, 18, 18, 0.1);
 }

@@ -38,7 +38,7 @@
         </div>
 
       <div class="text-center">
-        <button  class="btn btn-info btn-fill float-right" @click.prevent="updateProfile">
+        <button  class="btn btn-success btn-fill float-right" @click.prevent="updateProfile">
           Update Profile
         </button>
       </div>

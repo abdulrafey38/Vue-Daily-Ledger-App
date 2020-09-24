@@ -1,5 +1,5 @@
 import Api from './api';
-import Csrf from './Csrf';
+// import Csrf from './Csrf';
 
 export default {
     getcookie(){
@@ -19,6 +19,11 @@ export default {
 
         return Api.get("/user");
     },
+    showSupplierById(id)
+    {
+
+      return Api.get("/supplier/"+id);
+    },
     getsupplier()
     {
       return Api.get("/supplier");
@@ -34,7 +39,7 @@ export default {
     editsupplier(id,form)
     {
 
-      return Api.post('/supplier/'+id,form);
+      return Api.put('/supplier/'+id,form);
     },
     addproduct(form)
     {
@@ -44,9 +49,13 @@ export default {
     {
       return Api.get("/product");
     },
+    showProductById(id)
+    {
+      return Api.get("/product/"+id);
+    },
     editproduct(id,form)
     {
-      return Api.post("/product/"+id,form);
+      return Api.put("/product/"+id,form);
     },
     delproduct(id)
     {
@@ -61,6 +70,14 @@ export default {
     {
       return Api.get("/month");
     },
+    getmonthdate(id)
+    {
+      return Api.get("/month/"+id);
+    },
+    showMonthById(id)
+    {
+      return Api.get("/month/"+id);
+    },
     delmonth(id)
     {
       return  Api.delete("/month/"+id);
@@ -71,7 +88,7 @@ export default {
     },
     editmonth(id,form)
     {
-      return Api.post('/month/'+id,form);
+      return Api.put('/month/'+id,form);
     },
     getmonthdTransaction(id)
     {
@@ -102,9 +119,38 @@ export default {
     {
       return Api.post('/transaction',form);
     },
+    editTransaction(id,form)
+    {
+      return Api.put('/transaction/'+id,form);
+    },
+    showTransactionById(id)
+    {
+      return Api.get("/transaction/"+id);
+    },
     monthlySpendAmount(id)
     {
       return Api.get('/monthlySpendAmount/'+id);
+    },
+    allProductsCount()
+    {
+      return Api.get('/allProducts');
+    },
+    allSuppliersCount()
+    {
+      return Api.get('/allSuppliers');
+    },
+    totalAmountSpend()
+    {
+
+      return Api.get('/totalAmountSpend');
+    },
+    allTransactionsCount()
+    {
+      return Api.get('/allTransactions');
+    },
+    token()
+    {
+      return Api.post('/token');
     }
 
 };

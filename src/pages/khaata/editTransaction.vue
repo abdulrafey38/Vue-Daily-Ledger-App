@@ -57,7 +57,7 @@
             </div>
 
             <div class="col-md-3">
-              <label> Date </label>
+              <label>Date</label>
               <!-- <base-input type="date"
                     label="Date"
                     v-model="form.date">
@@ -99,10 +99,10 @@
           <div class="text-center">
             <button
               type="submit"
-              class="btn btn-success btn-fill float-right"
-              @click.prevent="makeTransaction"
+              class="btn btn-info btn-fill float-right"
+              @click.prevent="editTransaction"
             >
-              Make Transaction
+              Edit Transaction
             </button>
           </div>
         </form>
@@ -134,6 +134,7 @@ export default {
       suppliers: [],
       months: [],
       errors: [],
+      currentTransaction: this.$route.params.id,
       month_id: "",
       minDate: "",
       maxDate: "",
@@ -149,17 +150,35 @@ export default {
       this.getMonthDate(val);
     },
   },
-  mounted() {
+  created() {
     this.getSupplier();
     this.getMonth();
+    this.showTransactionById();
   },
   methods: {
-    makeTransaction() {
-      //alert('Your data: ' + JSON.stringify(this.form))
+    editTransaction() {
       Csrf.getcookie().then(() => {
-        User.addTransaction(this.form)
+        User.editTransaction(this.currentTransaction, this.form)
           .then((response) => {
-            this.$router.push("/dailyTransaction");
+            this.$router.push("/allTransaction");
+          })
+          .catch((error) => {
+            if (error.response.status === 422) {
+              this.errors = error.response.data.errors;
+            }
+          });
+      });
+    },
+    showTransactionById() {
+      Csrf.getcookie().then(() => {
+        User.showTransactionById(this.currentTransaction)
+          .then((response) => {
+            (this.form.product_id = response.data.transaction.product_id),
+              (this.supplier_id = response.data.transaction.supplier_id),
+              (this.month_id = response.data.transaction.month_id),
+              (this.form.date = response.data.transaction.date),
+              (this.form.quantity = response.data.transaction.quantity),
+              (this.form.price = response.data.transaction.price);
           })
           .catch((error) => {
             if (error.response.status === 422) {

@@ -63,7 +63,7 @@
       logout () {
          Csrf.getcookie().then(()=>{
         User.logout().then((response)=>{
-        localStorage.removeItem("auth");
+        localStorage.removeItem("auth001");
         this.$router.push('/login');
 
       })

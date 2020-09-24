@@ -1,14 +1,23 @@
 <template>
 
   <div :class="{'nav-open': $sidebar.showSidebar}">
-
+<transition
+         appear
+          enter-active-class="animate__animated animate__rollIn"
+          leave-active-class="animate__animated "
+          mode='out-in'
+          >
     <router-view></router-view>
+</transition>
   </div>
 
 </template>
 
 <script>
-  export default {}
+import User from './api/user';
+import Csrf from "./api/Csrf";
+  export default {
+  }
 </script>
 <style lang="scss">
   .vue-notifyjs.notifications{

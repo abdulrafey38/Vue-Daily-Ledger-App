@@ -51,7 +51,7 @@
     props:{
      backgroundColor: {
         type: String,
-        default: 'blue',
+        default: 'red',
         validator: (value) => {
           let acceptedValues = ['', 'blue', 'azure', 'green', 'orange', 'red', 'purple', 'black']
           return acceptedValues.indexOf(value) !== -1
@@ -59,7 +59,7 @@
       },
       backgroundImage: {
         type: String,
-        default: 'img/sidebar-5.jpg'
+        default: 'img/sidebar-4.jpg'
       },
       activeColor: {
         type: String,

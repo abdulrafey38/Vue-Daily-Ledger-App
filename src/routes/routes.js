@@ -26,11 +26,19 @@ import MonthTransaction from 'src/pages/khaata/monthDetail.vue'
 import EditProduct from 'src/pages/khaata/editProduct.vue'
 import EditSupplier from 'src/pages/khaata/editSupplier.vue'
 import EditMonth from 'src/pages/khaata/editMonth.vue'
+import Register from 'src/pages/khaata/register.vue'
+import EditTransaction from 'src/pages/khaata/editTransaction.vue'
+
+
 const routes = [
   {
     path: '/login',
     component: Login,
 
+  },
+  {
+    path: '/register',
+    component:Register,
   },
   {
     path: '/',
@@ -114,6 +122,11 @@ const routes = [
         path: 'makeTransaction',
         name: 'MakeTransaction',
         component: MakeTransaction
+      },
+      {
+        path: 'transaction/edit/:id',
+        name: 'EditTransaction',
+        component: EditTransaction
       }
     ]
   },
@@ -128,5 +141,6 @@ function view(name) {
    var res= require('../components/Dashboard/Views/' + name + '.vue');
    return res;
 };**/
+
 
 export default routes
